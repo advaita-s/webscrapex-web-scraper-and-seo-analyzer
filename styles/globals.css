@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-[linear-gradient(180deg,#7d3c98_0%,#3b1f3e_40%,#0f0a18_100%)] text-white;
+  background-image: linear-gradient(180deg, #7d3c98 0%, #3b1f3e 40%, #0f0a18 100%);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.card {
+  background: rgba(10, 8, 15, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #12c2a1, #4be1b5);
+  color: #071018;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+}
+
+.input {
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #eaeaea;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+/* hover scale + soft shadow + subtle lift for buttons */
+.btn-primary, .btn-secondary {
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  will-change: transform, box-shadow;
+}
+.btn-primary:hover, .btn-secondary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(9,14,20,0.45);
+  cursor: pointer;
+}
+
+/* small "pop" tooltip on hover (used by adding data-tooltip attr) */
+.tooltip {
+  position: relative;
+}
+.tooltip[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transform: translateY(-6px);
+  opacity: 1;
+  pointer-events: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  z-index: 40;
+}
+
+/* make page a column layout so header + main stack and main can scroll */
+#__next {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* main should expand to fill remaining space and allow internal scrolling */
+main {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 6rem; /* large bottom padding so last item isn't under footer */
+  box-sizing: border-box;
+}
+
+/* keep content centered on wide screens */
+@media (min-width: 1024px) {
+  main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+/* container for the Recent Jobs area */
+.recent-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* job card sizing: allow cards to wrap and not overflow horizontally */
+.card.job {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* make sure buttons float to the right on wide screens but wrap on small screens */
+.job-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* add bottom spacing for the whole page so last card never sits at the very bottom */
+.page-bottom-space {
+  height: 4rem;
+}
+/* ---------- Button visual & sizing ---------- */
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-width: 110px;        /* consistent width */
+  padding: .5rem 0.9rem;
+  height: 40px;            /* consistent height */
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms;
+  user-select: none;
+}
+
+/* primary and secondary color adjustments (pick what matches your theme) */
+.btn-primary { background: linear-gradient(90deg,#12c2a1,#4be1b5); color: #071018; }
+.btn-secondary { background: linear-gradient(180deg,#29cba0,#1fb391); color: #071018; }
+
+/* subtle hover lift for all buttons */
+.btn-primary:hover, .btn-secondary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(8,10,14,0.45);
+  cursor: pointer;
+}
+
+/* ---------- tooltip tweak so it doesn't overlap buttons ---------- */
+.tooltip[data-tooltip]:hover::after {
+  top: -46px;              /* lift tooltip slightly higher */
+  right: 50%;
+  transform: translateX(50%) translateY(-8px);
+}
+
+/* ---------- Job actions container (align right, keep responsive) ---------- */
+.job-actions {
+  display: flex;
+  gap: 12px;               /* space between buttons */
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;         /* wrap on small screens */
+}
+
+/* ensure button group doesn't overflow card on narrow screens */
+@media (max-width: 820px) {
+  .job-actions { width: 100%; justify-content: flex-start; gap: 8px; margin-top: 12px; }
+  .card { padding: 16px; }
+  .btn-primary, .btn-secondary { min-width: 95px; height: 36px; }
+}
+
+/* ---------- Card and list spacing ---------- */
+.card { padding: 18px; }
+.jobs-list { display: grid; gap: 14px; margin-bottom: 80px; } /* bottom breathing room */
+
+/* ===== Fix bottom spacing + heavy shadow ===== */
+
+/* Make card shadows softer and smaller so they don't "bleed" */
+.card {
+  /* existing properties kept, override heavy shadow */
+  box-shadow: 0 10px 24px rgba(0,0,0,0.48); /* smaller spread & blur */
+  border-radius: 12px;
+  padding: 18px;
+  position: relative;
+  overflow: visible; /* keep content visible while preventing clipping of children */
+}
+
+/* Add extra bottom padding to the main content so last card has breathing room */
+main {
+  padding-bottom: 140px; /* increases lower whitespace so last card doesn't touch bottom */
+}
+
+/* Ensure jobs list has enough bottom margin (additional safety) */
+.jobs-list {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 140px; /* matches main padding-bottom */
+}
+
+/* Prevent shadow stacking artifacts on stacked cards */
+.job-actions, .card + .card {
+  isolation: isolate; /* prevents shadow bleed between stacked cards */
+}
+
+/* On small screens reduce heavy spacing but keep breathing room */
+@media (max-width: 820px) {
+  main { padding-bottom: 100px; }
+  .jobs-list { margin-bottom: 100px; }
+  .card { box-shadow: 0 8px 18px rgba(0,0,0,0.44); }
+}
+
+/* Global wrapper to prevent content from touching page bottom */
+.page-wrapper {
+  padding-bottom: 180px; /* Space at the bottom of the page */
+}
+
+/* Ensure job cards never overflow below the gradient boundary */
+.jobs-list {
+  margin-bottom: 60px !important;
+  padding-bottom: 40px;
+}
+
+/* Reduce shadow so overlap does not look heavy */
+.card {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+  margin-bottom: 22px; /* Ensures each card sits separated */
+}
+
+/* Last card extra bottom gap */
+.jobs-list .card:last-child {
+  margin-bottom: 100px !important;
+}
+/* Fix for dark section not extending far enough */
+body {
+  background: linear-gradient(
+    to bottom,
+    #0f0a1d 0%,
+    #0f0a1d 20%,
+    #5a2a7a 100%,
+    #0f0a1d 70%   /* dark section extended downward */  /* purple section starts later */
+  );
+  background-attachment: fixed;
+}
