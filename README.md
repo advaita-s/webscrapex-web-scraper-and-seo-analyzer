@@ -96,23 +96,7 @@ Built using FastAPI, SQLModel, and Next.js with a sleek UI.
 
 # Project Structure
 
-ScraperLab/
-│
-├── backend/
-│   ├── app/
-│   │   ├── main.py
-│   │   ├── scraper.py
-│   │   ├── seo.py
-│   │   ├── crud.py
-│   │   ├── utils.py
-│   │   ├── database.py
-│   │   └── models.py
-│   └── outputs/
-│
-└── frontend/
-    ├── pages/
-    ├── components/
-    ├── public/
+<img width="243" height="504" alt="image" src="https://github.com/user-attachments/assets/85ab6bd4-10f6-4e5d-8429-8360e02f6840" />
 
 # Backend Setup (FastAPI)
 # Create virtual environment
