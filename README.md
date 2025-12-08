@@ -48,21 +48,21 @@ Built using FastAPI, SQLModel, and Next.js with a sleek UI.
 
 6. Extract:
 
-Page Title
+     a. Page Title
 
-Meta Description
+     b. Meta Description
 
-Headings H1–H6
+     c. Headings H1–H6
 
-Top Keywords with density
+     d. Top Keywords with density
 
-Readability metrics (Flesch score)
+     e. Readability metrics (Flesch score)
 
-SEO Suggestions
+     f. SEO Suggestions
 
-AI rewrite (optional)
+     g. AI rewrite (optional)
 
-SEO History tracking
+     h. SEO History tracking
 
 # Tech Stack
 
