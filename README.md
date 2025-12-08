@@ -22,13 +22,13 @@ Built using FastAPI, SQLModel, and Next.js with a sleek UI.
 
 1. Extract:
 
-Product Name
+     a. Product Name
 
-Brand
+     b. Brand
 
-Price / MRP / Discount
+     c. Price / MRP / Discount
 
-Rating & Review Count
+     d. Rating & Review Count
 
 2. Key Features
 
