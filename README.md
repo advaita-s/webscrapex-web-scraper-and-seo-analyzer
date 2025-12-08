@@ -1,4 +1,4 @@
-# ScraperLab — AI Web Scraper & SEO Analyzer
+# WebScrapeX — AI Web Scraper & SEO Analyzer
 
 ScraperLab is a modern, full-stack AI-powered web scraping and SEO intelligence platform.
 It extracts article content, product details, pricing data, keywords, SEO metrics, and more — with AI summaries, SEO insights, and job history tracking.
