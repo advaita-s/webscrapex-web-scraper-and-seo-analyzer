@@ -96,7 +96,8 @@ Built using FastAPI, SQLModel, and Next.js with a sleek UI.
 
 # Project Structure
 
-<img width="243" height="504" alt="image" src="https://github.com/user-attachments/assets/85ab6bd4-10f6-4e5d-8429-8360e02f6840" />
+<img width="382" height="843" alt="image" src="https://github.com/user-attachments/assets/87360ca3-d9ac-48f2-8262-011aed70b83b" />
+
 
 # Backend Setup (FastAPI)
 # Create virtual environment
